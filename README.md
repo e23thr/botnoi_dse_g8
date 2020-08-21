@@ -26,7 +26,7 @@ Note: assume to run from command line (mine is Mac's terminal) and you are in th
 % pip install -r requirements.txt
 ```
 
-1. To scraper livinginsider.com
+1. To scrape livinginsider.com
 
 ```
 % scrapy runspider -o data/livinginsider.csv livinginsider_com/livinginsider_com/spiders/houses_spider.py
