@@ -1,14 +1,20 @@
 # botnoi_dse_g8 scraper
 
+Note: assume to run from command line (mine is Mac's terminal) and you are in the project directory
+
 ## Prequisites
 
 1. Python 3.8+
-2. virtualenv
-3. pip or pip3
+2. virtualenv (recommended)
+3. pip
 
-## Setup
+## Setup virtualenv
 
-1. Use environment
+```
+% virtualenv env
+```
+
+1. Use environment (if virtualenv is installed or skip to No.2)
 
 ```
 % source env/bin/activate
