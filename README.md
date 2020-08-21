@@ -23,7 +23,7 @@
 1. To scraper livinginsider.com
 
 ```
-% scrapy runspider -o data/livinginsider.json livinginsider_com/livinginsider_com/spiders/houses_spider.py
+% scrapy runspider -o data/livinginsider.csv livinginsider_com/livinginsider_com/spiders/houses_spider.py
 ```
 
 4. To clean data
