@@ -26,13 +26,27 @@ Note: assume to run from command line (mine is Mac's terminal) and you are in th
 % pip install -r requirements.txt
 ```
 
-1. To scrape livinginsider.com
+## To scrape livinginsider.com
+
+Before scraping you have to be in livinginsider_com directory by running command below
 
 ```
-% scrapy runspider -o data/livinginsider.csv livinginsider_com/livinginsider_com/spiders/houses_spider.py
+% cd livinginsider_com
 ```
 
-4. To clean data
+### Scrape houses and save to csv file
+
+```
+% scrapy crawl -o ../data/houses.csv houses
+```
+
+### Scrape condos and save to csv file
+
+```
+% scrapy crawl -o ../data/condos.csv condos
+```
+
+## To clean data
 
 ```
 % rm -fr data/*

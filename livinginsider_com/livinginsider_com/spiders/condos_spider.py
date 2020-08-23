@@ -1,15 +1,17 @@
 import scrapy
 import re
+import time
+import sys
 
 
-class HousesSpider(scrapy.Spider):
-    name = "houses"
+class CondosSpider(scrapy.Spider):
+    name = "condos"
 
     def start_requests(self):
-        url = 'https://www.livinginsider.com/searchword/Home/Buysell/1/%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8-%E0%B8%82%E0%B8%B2%E0%B8%A2-%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99.html'
-        yield scrapy.Request(url=url, callback=self.parse_list)
+        url = "https://www.livinginsider.com/searchword/Condo/Buysell/1/%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8-%E0%B8%82%E0%B8%B2%E0%B8%A2-%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%82%E0%B8%94.html"
+        yield scrapy.Request(url=url, callback=self.parse_listing_page)
 
-    def parse_list(self, response):
+    def parse_listing_page(self, response):
         print("Scraping: ", response.url)
         list_selector = ".istock-list:not(.sticky):not(.sticky-banner) > div.item-desc a::attr(href)"
         urls = response.css(list_selector).getall()
@@ -22,11 +24,16 @@ class HousesSpider(scrapy.Spider):
             if anchor_text.find("Next") != -1:
                 next_page_url = anchor.css("*::attr(href)").get()
         if (next_page_url != ""):
-            yield scrapy.Request(url=next_page_url, callback=self.parse_list)
+            yield scrapy.Request(url=next_page_url, callback=self.parse_listing_page)
 
     def parse_data(self, response):
+        print("Parsing data", response.url)
         thumbs_list = response.css(
             'img.mbSlideDown::attr(src)').getall()
+        if len(thumbs_list) < 1:
+            print("Error no thumb list", response.url)
+            sys.exit(1)
+
         for idx, thumb in enumerate(thumbs_list):
             yield {
                 "url": response.url,
