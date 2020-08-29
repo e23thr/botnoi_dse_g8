@@ -45,13 +45,13 @@ class CondosSpider(scrapy.Spider):
 
             "price": response.css("#detail-topic p.price-detail::text").get().strip(),
 
-            "area": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div:nth-child(2)").get().splitlines()))),
+            "area": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div:nth-last-child(2)").get().splitlines()))),
 
-            "bedrooms": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div>div:nth-child(1)").get().splitlines()))),
+            "bedrooms": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div:nth-last-child(1)>div:nth-child(1)").get().splitlines()))),
 
-            "restrooms": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div>div:nth-child(2)").get().splitlines()))),
+            "restrooms": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div:nth-last-child(1)>div:nth-child(2)").get().splitlines()))),
 
-            "floors": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div>div:nth-child(3)").get().splitlines()))),
+            "floors": re.sub("\<\/div\>", "", re.sub(r"^\<.+\<img.+\"\>", "", "".join(response.css("#property-inform>div.row>div:nth-last-child(1)>div:nth-child(3)").get().splitlines()))),
 
             "images": thumb,
 

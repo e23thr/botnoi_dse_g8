@@ -1,4 +1,4 @@
-# Scrapy settings for livinginsider_com project
+# Scrapy settings for assets_web project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'livinginsider_com'
+BOT_NAME = 'assets_web'
 
-SPIDER_MODULES = ['livinginsider_com.spiders']
-NEWSPIDER_MODULE = 'livinginsider_com.spiders'
+SPIDER_MODULES = ['assets_web.spiders']
+NEWSPIDER_MODULE = 'assets_web.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'livinginsider_com (+http://www.yourdomain.com)'
+#USER_AGENT = 'assets_web (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -37,34 +37,34 @@ ROBOTSTXT_OBEY = True
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
+# DEFAULT_REQUEST_HEADERS = {
 #   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #   'Accept-Language': 'en',
-#}
+# }
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'livinginsider_com.middlewares.LivinginsiderComSpiderMiddleware': 543,
-#}
+# SPIDER_MIDDLEWARES = {
+#    'assets_web.middlewares.AssetWebSpiderMiddleware': 543,
+# }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'livinginsider_com.middlewares.LivinginsiderComDownloaderMiddleware': 543,
-#}
+# DOWNLOADER_MIDDLEWARES = {
+#    'assets_web.middlewares.AssetWebDownloaderMiddleware': 543,
+# }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
+# EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,
-#}
+# }
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'livinginsider_com.pipelines.LivinginsiderComPipeline': 300,
-#}
+# ITEM_PIPELINES = {
+#    'assets_web.pipelines.AssetWebPipeline': 300,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
