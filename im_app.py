@@ -2,21 +2,22 @@
 # coding: utf-8
 
 
-
-import tensorflow as tf 
+import tensorflow as tf
 import cv2
-import numpy as np 
+import numpy as np
 
 
-model = tf.keras.models.load_model('/Users/thiraprarom/Botnoi/imgcls.h5')
+model = tf.keras.models.load_model('./imgcls.h5')
 
 
-classDict = {0: 'condo',1: 'house',}
+classDict = {0: 'condo', 1: 'house', }
 
 # Create pipeline
+
+
 def predictImage(image):
     data = []
-    image = cv2.imread(image,cv2.IMREAD_COLOR)
+    image = cv2.imread(image, cv2.IMREAD_COLOR)
     image = cv2.resize(image, (28, 28))
     label = classDict
     data.append(image)
@@ -29,6 +30,4 @@ def predictImage(image):
     return label, confident
 
 
-
-predictImage('/Users/thiraprarom/Botnoi/im_cls/condo/30.jpg')
-
+predictImage('./test-images/0dc855dfc526d65296202ba0f88c1ef3.jpg')
