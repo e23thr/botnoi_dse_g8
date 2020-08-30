@@ -5,8 +5,14 @@ Note: assume to run from command line (mine is Mac's terminal) and you are in th
 ## Prequisites
 
 1. Python 3.8+
-2. virtualenv (recommended)
-3. pip
+2. pip
+3. virtualenv (recommended) [How to install](https://virtualenv.pypa.io/en/latest/installation.html)
+
+## (Optional) Install virtualenv using pip
+
+```
+% python -m pip install --user virtualenv
+```
 
 ## Setup virtualenv
 
@@ -26,12 +32,12 @@ Note: assume to run from command line (mine is Mac's terminal) and you are in th
 % pip install -r requirements.txt
 ```
 
-## To scrape livinginsider.com
+## To scrape data from website
 
 Before scraping you have to be in livinginsider_com directory by running command below
 
 ```
-% cd livinginsider_com
+% cd scraper
 ```
 
 ### Scrape houses and save to csv file
